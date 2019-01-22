@@ -19,9 +19,9 @@ function countSheeps(arrayOfSheep) {
   var sum = 0;
     for (var i = 0; i <= arrayOfSheep.length; i++)
     {
-      if (arrayOfSheep[i] == true)
+      if (arrayOfSheep[i])
       {
-      sum = sum + 1;
+      sum++;
       }
     }
     return sum;
