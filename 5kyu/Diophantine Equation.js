@@ -16,7 +16,6 @@ solEquaStr(90002) --> "[]"
 Hint:
 x2 - 4 * y2 = (x - 2*y) * (x + 2*y)
 */
-//Работает, но медленно
 function solequa(n) {
   var arr=[];
   var x,y,a,b;
