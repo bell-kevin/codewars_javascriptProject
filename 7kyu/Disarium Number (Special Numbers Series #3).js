@@ -24,7 +24,5 @@ function disariumNumber(n){
   var s=n+'',sum=0;
   for(var i=0;i<s.length;i++)
       sum+=s[i]**(i+1);
-  if (sum==n)
-    return "Disarium !!"
-  return "Not !!"
+  return sum==n ? "Disarium !!" : "Not !!"
 }
