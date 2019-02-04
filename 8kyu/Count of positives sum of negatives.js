@@ -30,3 +30,12 @@ function countPositivesSumNegatives(input) {
     }
     return [countOfPositives, sumOfNegatives];
 }
+//Alternative
+function countPositivesSumNegatives(inp) {
+  if (inp==null || inp.length==0)
+    return []
+  var p=0,n=0
+  for(var i=0;i<inp.length;i++)
+    inp[i]>0 ? p++ : n+=inp[i]
+  return [p,n]
+}
