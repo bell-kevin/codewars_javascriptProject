@@ -49,21 +49,22 @@ function jumpingNumber(n){
     {
       if (i==0)
         {
-          if (str[i+1]!=str[i]-1 && str[i+1]!=+str[i]+1)
-            return "Not!!"
-          else
+          if (Math.abs(str[i+1]-str[i])==1)
             continue
+          else
+            break
         }
       if (i==str.length-1)
         {
-          if (str[i-1]==str[i]-1 || str[i-1]==+str[i]+1)
+          if (Math.abs(str[i-1]-str[i])==1)
             return "Jumping!!"
           else
-            return "Not!!"
+            break
         }
-      if ((str[i+1]==str[i]-1 || str[i+1]==+str[i]+1) && (str[i-1]==str[i]-1 || str[i-1]==+str[i]+1))
+      if (Math.abs(str[i+1]-str[i])==1 && Math.abs(str[i-1]-str[i])==1)
         continue
       else
-        return "Not!!"
+        break
     }
+    return "Not!!"
 }
