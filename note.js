@@ -8,3 +8,5 @@ function validateUsr(username) {
   const res =  regex.test(username);
   return res;
 }
+//Убрать повторяющиеся элементы массива
+array.filter((item,pos,arr)=>!pos||item!==arr[pos-1])
