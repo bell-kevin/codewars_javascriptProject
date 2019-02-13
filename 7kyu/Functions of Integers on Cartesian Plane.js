@@ -61,9 +61,6 @@ function sumsum(n) {
 var s=0
   for(var x=1;x<=n;x++)
     for(var y=1;y<=n;y++)
-    {
-      s+=Math.max(x,y)
-      s+=Math.min(x,y)
-    }
+      s+=x+y
   return s
 }
