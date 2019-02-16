@@ -36,18 +36,15 @@ function encrypt(text, n) {
 
 function decrypt(encr, n) {
   if (encr == null || encr == '' || n <= 0) return encr
-  var res, t1, t2, e = ''
+  var res, e = ''
   for (var i = 0; i < n; i++) {
     res = ''
     if (encr.length % 2 == 1) {
       e = encr.slice(-1)
       encr = encr.slice(0, encr.length - 1)
     }
-    for (var j = 0; j < encr.length / 2; j++) {
-      t1 = encr.substr(j, 1)
-      t2 = encr.substr((encr.length / 2 + j), 1)
-      res += t2 + t1
-    }
+    for (var j = 0; j < encr.length / 2; j++)
+      res += encr.substr((encr.length / 2 + j), 1) + encr.substr(j, 1)
     res += e
     encr = res
   }
