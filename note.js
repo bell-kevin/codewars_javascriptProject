@@ -9,6 +9,6 @@ function validateUsr(username) {
   return res;
 }
 //Убрать смежные повторяющиеся элементы массива
-array.filter((item,i,a)=>!i||item!==a[i-1])
+array.filter((x,i,arr)=>!i||x!==arr[i-1])
 //Убрать повторяющиеся элементы массива
-array.filter((item,i,a)=>a.indexOf(item)===i)
+array.filter((x,i,arr)=>arr.indexOf(x)===i)
