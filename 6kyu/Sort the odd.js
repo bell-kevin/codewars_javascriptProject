@@ -1,0 +1,22 @@
+/*
+https://www.codewars.com/kata/sort-the-odd/
+
+You have an array of numbers.
+Your task is to sort ascending odd numbers but even numbers must be on their places.
+
+Zero isn't an odd number and you don't need to move it. If you have an empty array, you need to return it.
+
+Example
+
+sortArray([5, 3, 2, 8, 1, 4]) == [1, 3, 2, 8, 5, 4]
+*/
+function sortArray(arr) {
+  var j = 0
+  var odd = arr.filter(a => a % 2 == 1).sort((a, b) => a - b)
+  for (var i = 0; i < arr.length; i++)
+    if (arr[i] % 2 == 1) {
+      arr[i] = odd[j]
+      j++
+    }
+  return arr
+}
