@@ -16,8 +16,8 @@ Note that 121 has twice the digit 1.
 */
 function nbDig(n, d) {
   var x = ''
-  var reg = new RegExp('\[\^' + d + '\]', 'g')
+  var reg = new RegExp(d, 'g')
   for (var i = 0; i <= n; i++)
     x += i * i
-  return x.replace(reg, '').length
+  return x.match(reg, '').length
 }
