@@ -17,18 +17,16 @@ Hint:
 x2 - 4 * y2 = (x - 2*y) * (x + 2*y)
 */
 function solequa(n) {
-  var arr=[];
-  var x,y,a,b;
-  for(a=0;a<=Math.sqrt(n);a++)
-    {
-      b=n/a;
-      x=(b+a)/2;
-      y=(b-a)/4;
+  var arr = []
+  var x, y, a, b
+  for (a = 0; a <= Math.sqrt(n); a++) {
+    b = n / a
+    x = (b + a) / 2
+    y = (b - a) / 4
 
-      if(Number.isInteger(x) == true && Number.isInteger(y) == true)
-        {
-          arr.push([x,y]);
-        }
+    if (Number.isInteger(x) == true && Number.isInteger(y) == true) {
+      arr.push([x, y])
     }
-  return arr;
+  }
+  return arr
 }

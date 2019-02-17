@@ -45,23 +45,23 @@ See more examples in "Example Tests"
 Note
 Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible. "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
 */
-function dirReduc(arr){
-  for(var i=0;i<arr.length;)
-    {
-      if (i>0 &&
-        ((arr[i]=="NORTH" && arr[i-1]=="SOUTH")||
-         (arr[i]=="SOUTH" && arr[i-1]=="NORTH")||
-         (arr[i]=="WEST"  && arr[i-1]=="EAST" )||
-         (arr[i]=="EAST"  && arr[i-1]=="WEST" )))
-             {arr.splice(i-1,2);i--}
-      else if
-        ((arr[i]=="NORTH" && arr[i+1]=="SOUTH")||
-         (arr[i]=="SOUTH" && arr[i+1]=="NORTH")||
-         (arr[i]=="WEST"  && arr[i+1]=="EAST" )||
-         (arr[i]=="EAST"  && arr[i+1]=="WEST" ))
-             arr.splice(i,2)
-      else
-             i++
-    }
-    return arr
+function dirReduc(arr) {
+  for (var i = 0; i < arr.length;) {
+    if (i > 0 &&
+       ((arr[i] == "NORTH" && arr[i - 1] == "SOUTH") ||
+        (arr[i] == "SOUTH" && arr[i - 1] == "NORTH") ||
+        (arr[i] == "WEST"  && arr[i - 1] == "EAST")  ||
+        (arr[i] == "EAST"  && arr[i - 1] == "WEST"))) {
+      arr.splice(i - 1, 2)
+      i--
+    } else if
+     ((arr[i] == "NORTH" && arr[i + 1] == "SOUTH") ||
+      (arr[i] == "SOUTH" && arr[i + 1] == "NORTH") ||
+      (arr[i] == "WEST"  && arr[i + 1] == "EAST")  ||
+      (arr[i] == "EAST"  && arr[i + 1] == "WEST"))
+      arr.splice(i, 2)
+    else
+      i++
+  }
+  return arr
 }
