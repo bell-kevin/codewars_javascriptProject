@@ -25,3 +25,9 @@ var re = /([а-яё]+)\s([а-яё]+)/i;
 var str = 'Джон Смит';
 var newstr = str.replace(re, '$2, $1');
 console.log(newstr);
+//Caesar's cipher
+function rot13(message) {
+  var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+  return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+}
