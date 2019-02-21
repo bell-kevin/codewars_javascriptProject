@@ -26,13 +26,12 @@ function dblLinear(n) {
       xt, yt
   for (var i = 0; i < n; i++) {
     xt = u * 2 + 1
-    yt = u * 3 + 1
+    yt = xt + u
     if (!y.includes(xt))
       x.push(xt)
     if (!x.includes(yt))
       y.push(yt)
-    u=Math.min(x[0], y[0])
-    x[0] < y[0] ? x.shift() : y.shift()
+    u = x[0] < y[0] ? x.shift() : y.shift()
   }
   return u
 }
