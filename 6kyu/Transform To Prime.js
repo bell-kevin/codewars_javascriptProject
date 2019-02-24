@@ -26,7 +26,7 @@ Since , the sum of the list's elements equal to (189) , the minimum number to be
 */
 function minimumNumber(n) {
   var res = 0,
-      sum = n.reduce((a, b) => a + b)
+    sum = n.reduce((a, b) => a + b)
   while (!isPrime(sum)) {
     sum++
     res++
@@ -35,19 +35,8 @@ function minimumNumber(n) {
 }
 
 function isPrime(num) {
-  if (num <= 1) {
-    return true
-  } else if (num <= 3) {
-    return true
-  } else if (num % 2 === 0 || num % 3 === 0) {
-    return false
-  }
-  let i = 5
-  while (i * i <= num) {
-    if (num % i === 0 || num % (i + 2) === 0) {
+  for (var i = 2; i < num; i++)
+    if (num % i === 0)
       return false
-    }
-    i += 6
-  }
   return true
 }
