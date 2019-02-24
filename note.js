@@ -31,3 +31,21 @@ function rot13(message) {
   var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
   return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
 }
+//Является ли число простым
+function isPrime(num) {
+  if (num <= 1) {
+    return true
+  } else if (num <= 3) {
+    return true
+  } else if (num % 2 === 0 || num % 3 === 0) {
+    return false
+  }
+  let i = 5
+  while (i * i <= num) {
+    if (num % i === 0 || num % (i + 2) === 0) {
+      return false
+    }
+    i += 6
+  }
+  return true
+}
