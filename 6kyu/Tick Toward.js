@@ -10,22 +10,21 @@ tickToward([5,5],[5,7])  // => [[5,5],[5,6],[5,7]]
 tickToward([3,2],[4,5])  // => [[3,2],[4,3],[4,4],[4,5]]
 tickToward([5,1],[5,-2]) // => [[5,1],[5,0],[5,-1],[5,-2]]
 */
-function tickToward(start,end){
-  var x=start[0], y=start[1];
-  var x_e=end[0], y_e=end[1];
-  var map=[];
-  map.push(start);
-  while(x!=x_e || y!=y_e)
-    {
-      if (x!=x_e)
-        {
-          (x_e>x)?x++:x--;
-        }
-      if (y!=y_e)
-        {
-          (y_e>y)?y++:y--;
-        }
-      map.push([x,y]);
+function tickToward(start, end) {
+  var x = start[0],
+      y = start[1],
+      x_e = end[0],
+      y_e = end[1],
+      map = []
+  map.push(start)
+  while (x != x_e || y != y_e) {
+    if (x != x_e) {
+      (x_e > x) ? x++ : x--
     }
-    return map;
+    if (y != y_e) {
+      (y_e > y) ? y++ : y--
+    }
+    map.push([x, y])
+  }
+  return map
 }

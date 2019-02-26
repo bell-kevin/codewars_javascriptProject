@@ -40,23 +40,19 @@ In that case the returned structure of C will have its sz component equal to 0.
 Return the string "nil" with Bash, PowerShell and Fortran.
 You can see more examples in "RUN SAMPLE TESTS".
 */
-function sqInRect(l,w){
-  var arr=[]
-  if(l==w)
-   return null
-  while(w!=l)
-    {
-      if(l<w)
-        {
-          w=w-l
-          arr.push(l)
-        }
-      else
-        {
-          l=l-w
-          arr.push(w)
-        }
+function sqInRect(l, w) {
+  var arr = []
+  if (l == w)
+    return null
+  while (w != l) {
+    if (l < w) {
+      w = w - l
+      arr.push(l)
+    } else {
+      l = l - w
+      arr.push(w)
     }
-    arr.push(w)
-    return arr
+  }
+  arr.push(w)
+  return arr
 }
