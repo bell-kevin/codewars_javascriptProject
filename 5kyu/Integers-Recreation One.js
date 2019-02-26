@@ -18,15 +18,15 @@ Note
 In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.
 */
 function listSquared(m, n) {
-  var arr, out = []
+  var sqrs, out = []
   for (var i = m; i <= n; i++) {
-    arr = []
+    sqrs = []
     for (var j = 1; j <= i; j++)
       if (i % j == 0)
-        arr.push(j * j)
-    arr = arr.reduce((a, b) => a + b)
-    if (Number.isInteger(Math.sqrt(arr)))
-      out.push([i, arr])
+        sqrs.push(j * j)
+    sqrs = sqrs.reduce((a, b) => a + b)
+    if (Math.sqrt(sqrs) % 1 == 0)
+      out.push([i, sqrs])
   }
   return out
 }
