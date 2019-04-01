@@ -24,3 +24,11 @@ function perimeter(n) {
   }
   return arr.reduce((a, b) => a + b) * 4
 }
+//Alternative for n>2
+function perimeter(n) {
+  var arr = [1, 1]
+  for (var i = 0; i < n - 1; i++) {
+    arr.push(arr[i] + arr[i + 1])
+  }
+  return arr.reduce((a, b) => a + b) * 4
+}
