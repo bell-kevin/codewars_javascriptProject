@@ -35,51 +35,44 @@ Good luck and enjoy!
 Kata Series
 If you enjoyed this, then please try one of my other Katas. Any feedback, translations and grading of beta Katas are greatly appreciated. Thank you.
 */
-var p1_pos = 0,
-  p2_pos = 0,
-  player_active = 0,
-  message,
-  gameover = 0;
-
-function SnakesLadders() {};
+function SnakesLadders() {
+    this.p1_pos = 0,
+    this.p2_pos = 0,
+    this.player_active = 0,
+    this.gameover = 0;
+};
 
 SnakesLadders.prototype.play = function(die1, die2) {
-  function change_player() {
-    if (die1 != die2) {
-      player_active++;
-    }
-  }
-  console.log(die1, die2)
-  if (gameover == 1) {
+  if (this.gameover == 1) {
     return "Game over!"
   }
-  if (player_active % 2 == 0) {
-    p1_pos += die1 + die2;
-    if (p1_pos == 100) {
-      change_player();
-      gameover = 1;
+  if (this.player_active % 2 == 0) {
+    this.p1_pos += die1 + die2;
+    if (this.p1_pos == 100) {
+      this.gameover = 1;
       return "Player 1 Wins!";
     }
-    if (p1_pos > 100) {
-      p1_pos = 200 - p1_pos;
+    if (this.p1_pos > 100) {
+      this.p1_pos = 200 - this.p1_pos;
     }
-    p1_pos = up_down(p1_pos);
+    this.p1_pos = up_down(this.p1_pos);
   } else {
-    p2_pos += die1 + die2;
-    if (p2_pos == 100) {
-      change_player();
-      gameover = 1;
+    this.p2_pos += die1 + die2;
+    if (this.p2_pos == 100) {
+      this.gameover = 1;
       return "Player 2 Wins!";
     }
-    if (p2_pos > 100) {
-      p2_pos = 200 - p2_pos;
+    if (this.p2_pos > 100) {
+      this.p2_pos = 200 - this.p2_pos;
     }
-    p2_pos = up_down(p2_pos);
+    this.p2_pos = up_down(this.p2_pos);
   }
-  message = player_active % 2 == 0 ? "Player 1 is on square " + p1_pos : "Player 2 is on square " + p2_pos;
-  change_player();
-  console.log(p1_pos, p2_pos);
-  return message
+  this.message = this.player_active % 2 == 0 ? "Player 1 is on square " + this.p1_pos : "Player 2 is on square " + this.p2_pos;
+  if (die1 != die2) {
+    this.player_active++;
+  }
+  console.log(this.p1_pos, this.p2_pos);
+  return this.message
 }
 
 function up_down(pos) {
