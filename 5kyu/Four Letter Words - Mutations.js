@@ -131,15 +131,15 @@ If interested, I also have this kata as well as this other kata to consider solv
 function mutations(alice, bob, word, first) {
     var player = first,
         current_word = word,
-        points = [undefined, undefined],
         current_score,
+        points = [undefined, undefined],
+        used_words = [word],
         alice_dict = [...alice],
         bob_dict = [...bob];
     while (true) {
         current_score = check(current_word, player ? bob_dict : alice_dict);
         points.push(current_score);
         points.shift();
-        console.log(current_score, points);
         if (current_score == 0) {
             if (points[0] == undefined) {
                 player = player ? 0 : 1;
@@ -158,7 +158,6 @@ function mutations(alice, bob, word, first) {
 
     function check(check_word, dictionary) {
         for (var i = 0; i < dictionary.length; i++) {
-            console.log(check_word, dictionary[i], player);
             var compared_symbols = 0;
             for (var j = 0; j < 4; j++) {
                 if (check_word[j] == dictionary[i][j]) {
@@ -166,11 +165,24 @@ function mutations(alice, bob, word, first) {
                 }
             }
             if (compared_symbols == 3) {
+                if (unique_words(dictionary[i]) || unique_letters(dictionary[i]) < 4) {
+                    continue
+                }
                 current_word = dictionary[i];
-                player ? bob_dict.splice(i, 1) : alice_dict.splice(i, 1);
+                player ? used_words.push(bob_dict.splice(i, 1)[0]) : used_words.push(alice_dict.splice(i, 1)[0]);
                 return 1;
             }
         }
         return 0;
+
+        function unique_letters(unique_letters_word) {
+            var arr = unique_letters_word.split('');
+            return ([...new Set(arr)].length)
+        }
+
+        function unique_words(unique_word) {
+            if (used_words.includes(unique_word))
+                return 1
+        }
     }
 }
