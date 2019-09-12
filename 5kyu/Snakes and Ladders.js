@@ -71,7 +71,6 @@ SnakesLadders.prototype.play = function(die1, die2) {
   if (die1 != die2) {
     this.player_active++;
   }
-  console.log(this.p1_pos, this.p2_pos);
   return this.message
 }
 
