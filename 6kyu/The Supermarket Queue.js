@@ -39,14 +39,9 @@ P.S. The situation in this kata can be likened to the more-computer-science-rela
 */
 
 function queueTime(customers, n) {
-  if (customers.length == 0)
-    return 0
-  var queue = [];
-  for (let i = 0; i < n; i++) {
-    queue[i] = 0;
-  }
+  let queue = new Array(n).fill(0);
   for (let j = 0; j < customers.length; j++) {
-    var indexOfMinValue = queue.indexOf(Math.min(...queue));
+    let indexOfMinValue = queue.indexOf(Math.min(...queue));
     queue[indexOfMinValue] += customers[j];
   }
   return Math.max(...queue);
