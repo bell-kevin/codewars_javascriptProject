@@ -19,30 +19,10 @@ More examples in test cases. Good luck!
 */
 
 function solve(str) {
-  let array = [], 
-      word = '',
-      isVowel = (letter) => letter.match(/[aeiou]/i)
-      
-  for (let i in str){
-    let letter = str[i]
-    if (isVowel(letter)){
-      if (word !== ''){
-        array.push(word)
-        word = ''
-      }
-    }
-    else{
-      word += letter
-    }
-  }
-  
-  if (word !== ''){
-    array.push(word)
-  }
-  
-  array = array.map(word=>{
-    return word.split('').reduce((acc, letter)=> acc+=letter.toLowerCase().charCodeAt(0)-96, 0)
-  })
-  
+  let array = str.match(/[^aeiou]+/gi)
+    .map(word=>{
+      return word.split('')
+      .reduce((acc, letter)=> acc+=letter.toLowerCase().charCodeAt(0)-96, 0)
+    })
   return Math.max.apply(null, array)
 };
